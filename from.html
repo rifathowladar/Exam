@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form Validation</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 400px;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #00b207;
+    }
+
+    .error {
+      color: red;
+      font-size: 13px;
+      margin-top: 5px;
+      display: block;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #00b207;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #009906;
+    }
+
+    .success {
+      color: green;
+      text-align: center;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="form-container">
+    <h2>Registration Form</h2>
+
+    <form id="registrationForm">
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your name" />
+        <span class="error" id="nameError"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" />
+        <span class="error" id="emailError"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password" />
+        <span class="error" id="passwordError"></span>
+      </div>
+
+      <button type="submit">Register</button>
+
+      <p class="success" id="successMessage"></p>
+
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("registrationForm");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      // Get values
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      // Error elements
+      const nameError = document.getElementById("nameError");
+      const emailError = document.getElementById("emailError");
+      const passwordError = document.getElementById("passwordError");
+      const successMessage = document.getElementById("successMessage");
+
+      // Clear previous errors
+      nameError.textContent = "";
+      emailError.textContent = "";
+      passwordError.textContent = "";
+      successMessage.textContent = "";
+
+      let isValid = true;
+
+      // Name validation
+      if (name === "") {
+        nameError.textContent = "Name is required";
+        isValid = false;
+      }
+
+      // Email validation
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (email === "") {
+        emailError.textContent = "Email is required";
+        isValid = false;
+      } else if (!emailPattern.test(email)) {
+        emailError.textContent = "Enter a valid email";
+        isValid = false;
+      }
+
+      // Password validation
+      if (password === "") {
+        passwordError.textContent = "Password is required";
+        isValid = false;
+      } else if (password.length < 6) {
+        passwordError.textContent =
+          "Password must be at least 6 characters";
+        isValid = false;
+      }
+
+      // Success
+      if (isValid) {
+        successMessage.textContent =
+          "Registration successful!";
+
+        form.reset();
+      }
+    });
+  </script>
+
+</body>
+</html>
