@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import Container from '../components/layout/Container'
 import Banner from '../components/Banner'
 import ProductShowcase from '../components/ProductShowcase'
@@ -19,6 +20,27 @@ const featureData = [
 ]
 
 const Home = () => {
+    const [allPro, setAllPro] = useState([])
+  const [allCat, setAllCat] = useState([])
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const [catRes, proRes] = await Promise.all([
+          axios.get('https://dummyjson.com/products/categories'),
+          axios.get('https://dummyjson.com/products'),
+        ])
+
+        setAllCat(catRes.data.slice(0, 12))
+        setAllPro(proRes.data.products)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    fetchData()
+  }, [])
+
   return (
     <>
       {/* Banner Slider */}
@@ -45,7 +67,12 @@ const Home = () => {
       <ProductShowcase allData={categories} title='Popular Categories' isCategory={true} />
       
       {/* Popular Products */}
-      <ProductShowcase allData={products} title='Popular Products' isCategory={false} />
+      <ProductShowcase
+        allData={allPro.slice(0, 12)}
+        title="Deals"
+        link="/deals"
+        hover="true"
+      />
       
       {/* Special Banner */}
       <BestDeals />

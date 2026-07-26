@@ -1,49 +1,111 @@
 import React from 'react'
-import { Link } from 'react-router'
 import Container from './layout/Container'
-import ProductCard from './ProductCard'
 import fruit from '../assets/images/fruit.webp'
+import { FaArrowRight, FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { Link } from 'react-router';
 
-const ProductShowcase = ({ allData, title, isCategory, viewAllLink = '/category' }) => {
-  return (
-    <Container className="py-10">
-      <div className="flex justify-between items-center mb-8">
-        <h2 className="text-lg lg:text-3xl font-bold font-pop text-black">{title}</h2>
-        <Link
-          to={viewAllLink}
-          className="text-green-600 font-semibold font-pop hover:underline text-sm lg:text-lg"
-        >
-          View All →
-        </Link>
-      </div>
-      {isCategory ? (
-        <div className="grid grid-cols-1 lg:grid-cols-6 gap-6">
-          {allData.map((item) => (
-            <Link
-              key={item.slug || item.id}
-              to={`/shop?category=${item.slug}`}
-              className="border rounded-lg p-4 hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden border-gray-200 hover:border-green-500 hover:border-2 hover:shadow-md"
-            >
-              <div className="flex justify-center items-center h-56 rounded-md mb-4 overflow-hidden">
-                <img src={item.image || fruit} alt={item.name} className="w-full h-full object-cover" />
-              </div>
-              <div className="text-center">
-                <h3 className="font-pop font-semibold transition-colors duration-300 text-gray-800 hover:text-green-600">
-                  {item.name}
-                </h3>
-              </div>
-            </Link>
-          ))}
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-0">
-          {allData.map((item) => (
-            <ProductCard key={item.id} product={item} />
-          ))}
-        </div>
-      )}
-    </Container>
-  )
+const ProductShowcase = ({ allData,
+    title,
+    link,
+    showViewAll = true ,
+    hover = false, }) => {
+
+    function star(count) {
+        let halfStar = count.toString().split('.')[1]
+        let index = Math.floor(count)
+        let arr = []
+        for (let i = 1; i <= 5; i++) {
+            if (i <= count) arr.push("color")
+            else arr.push(i)
+        }
+        if (halfStar) arr[index] = "half"
+        return arr
+    }
+
+    const itemsPerRow =
+    window.innerWidth >= 768
+        ? 6
+        : 2;
+
+    return (
+        <Container>
+            <div className="overflow-hidden">
+                <div className="flex justify-between mb-5 lg:mb-8 mt-2 lg:mt-15">
+                    <h2 className="text-lg lg:text-hsize font-semibold">{title}</h2>
+                    {showViewAll && (
+                        <Link to={link} className="text-primary flex gap-3 text-lg lg:text-base font-medium">
+                            View All <FaArrowRight />
+                        </Link>
+                    )}
+                </div>
+
+                <div className="grid grid-cols-2 lg:grid-cols-6 gap-5 mb-5 lg:mb-15">
+                    {allData.map((item, idx) => {
+                        const positionInRow = idx % itemsPerRow;
+                        const isNearRightEdge = positionInRow >= itemsPerRow - 2;
+
+                        const rowIndex = Math.floor(idx / itemsPerRow);
+                        const lastRowIndex = Math.floor((allData.length - 1) / itemsPerRow);
+                        const isBottomRow = rowIndex > 0 && rowIndex === lastRowIndex;
+
+                        return (
+                            <div
+                                key={idx}
+                                className="w-full border border-gry hover:border-primary hover:text-primary p-4 lg:p-6 rounded-md relative group duration-300 text-xs lg:text-base"
+                            >
+                                <img src={fruit} alt='banner' />
+                                {item.price
+                                    ? <h3 className='pt-4'>{(item.name || item.title).slice(0, 16)}...</h3>
+                                    : <h3 className='pt-4'>{item.name || item.title}</h3>}
+                                <p>{item.price && item.price}</p>
+                                <p>{item.rating && item.rating}</p>
+                                <div className="flex">
+                                    {item.rating && star(item.rating).map((s, i) => (
+                                        s === "color"
+                                            ? <FaStar key={i} className="text-yellow-400" />
+                                            : s === 'half'
+                                                ? <FaStarHalfAlt key={i} className="text-yellow-400" />
+                                                : <FaStar key={i} className="text-gry" />
+                                    ))}
+                                </div>
+
+                                {hover && (
+                                <div className="hidden lg:block">
+                                    <div
+                                        className={` w-[210%] h-133.5 rounded-md bg-white absolute m-2 hidden group-hover:block group-hover:border-primary duration-300 z-20 shadow-lg p-4 ${
+                                        isNearRightEdge ? "right-[-9px]" : "left-[-9px]"
+                                        } ${isBottomRow ? "bottom-[-9px]" : "top-[-9px]"}`}
+                                    >
+                                        <img src={fruit} alt="fruit" className='w' />
+
+                                        <h3 className="pt-4 text-lg font-medium">
+                                        {item.name || item.title}
+                                        </h3>
+
+                                        <p className="text-primary font-semibold">${item.price}</p>
+
+                                        <div className="flex mt-2">
+                                        {item.rating &&
+                                            star(item.rating).map((s, i) =>
+                                            s === "color" ? (
+                                                <FaStar key={i} className="text-yellow-400" />
+                                            ) : s === "half" ? (
+                                                <FaStarHalfAlt key={i} className="text-yellow-400" />
+                                            ) : (
+                                                <FaStar key={i} className="text-gray-300" />
+                                            )
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                                )}
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+        </Container>
+    )
 }
 
 export default ProductShowcase
