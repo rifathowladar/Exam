@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@theme{
+     --color-primary:#00B207;
+     --color-badgeone:#EA4B48;
+     --color-badgetwo:#2388FF;
+     --color-gry:#F2F2F2;
+     --text-hsize:32px;
+     --font-pop: "Poppins", sans-serif;
+}
+@font-face {
+     font-family: poppins;
+     src: url(../src/assets/images/font/Poppins/Poppins-Regular.ttf) format('ttf');
+}
+.sidebar{
+     padding: 10px;
+     border-radius: 6px;
+   }
+   .sidebar:hover{
+     background-color: #f3f4f6;
+   }
