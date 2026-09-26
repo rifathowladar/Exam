@@ -1,112 +1,236 @@
-আমি তোমাকে এখন শুধু **NSDA exam-এর website requirements** দেব।
+# 👋 Hi, I'm Rifat Howladar
 
-তোমার কাজ হলো **শুধু দেওয়া requirements অনুযায়ী website তৈরি করা।**
+### 💻 Full-Stack Developer | 🤖 AI & Automation | 🚀 DevOps
 
-### Strict Rules
+I’m a passionate developer focused on building modern, scalable and production-ready web applications.
 
-* Requirements-এ যা আছে **শুধু সেটাই তৈরি করবে**।
-* Requirements-এর বাইরে নিজের থেকে কোনো section, page, feature, functionality বা design যোগ করবে না।
-* **"DO NOT ADD ANYTHING EXTRA."**
+I enjoy working across the entire development lifecycle — from **frontend interfaces and backend APIs to AI-powered automation and DevOps**.
 
-### Technology
+---
 
-শুধু ব্যবহার করবে:
+## 🚀 About Me
 
-* HTML5
-* CSS3
-* Bootstrap 5
-* JavaScript — শুধুমাত্র একান্ত প্রয়োজন হলে
+* 💻 Building modern web applications with **React & TypeScript**
+* ⚙️ Learning and building **backend systems & REST APIs**
+* 🤖 Exploring **AI, LLMs, RAG, AI Agents & Automation**
+* 🔄 Building workflows with **n8n**
+* 🐳 Learning **Docker, CI/CD & DevOps**
+* 🏦 Currently working on a full-featured **Banking System UI**
+* 📚 Continuously learning modern software development
+* 🎯 Goal: Become a strong **Full-Stack + AI Engineer**
 
-### JavaScript Rule
+---
 
-JavaScript যতটা সম্ভব কম ব্যবহার করবে।
+# 🛠️ Tech Stack
 
-Priority হবে:
+### 🎨 Frontend
 
-**HTML → Bootstrap 5 → CSS → JavaScript**
+<p>
+  <img src="https://skillicons.dev/icons?i=html,css,js,ts,react,tailwind,redux,vite" />
+</p>
 
-যে কাজ Bootstrap দিয়ে করা যায় সেখানে custom JavaScript ব্যবহার করবে না।
+**HTML • CSS • JavaScript • TypeScript • React • Tailwind CSS • Redux Toolkit • Vite**
 
-যেমন:
+---
 
-* Navbar → Bootstrap
-* Dropdown → Bootstrap
-* Modal → Bootstrap
-* Carousel → Bootstrap
-* Responsive layout → Bootstrap
-* Layout/spacing → Bootstrap
-* Styling → Bootstrap + minimum CSS
+### ⚙️ Backend
 
-Custom JavaScript শুধুমাত্র requirements পূরণ করার জন্য সত্যিই প্রয়োজন হলে ব্যবহার করবে।
+<p>
+  <img src="https://skillicons.dev/icons?i=nodejs,express,python,django,fastapi,mongodb,postgresql" />
+</p>
 
-### Code Rule
+**Node.js • Express.js • Python • Django • FastAPI • MongoDB • PostgreSQL • REST APIs**
 
-* Code খুব simple এবং exam-friendly হবে।
-* অপ্রয়োজনীয় `div`, class এবং wrapper ব্যবহার করবে না।
-* Bootstrap classes যতটা সম্ভব বেশি ব্যবহার করবে।
-* Custom CSS যতটা সম্ভব কম রাখবে।
-* Complex JavaScript লিখবে না।
-* কোনো framework/library ব্যবহার করবে না।
-* React, Tailwind, jQuery ইত্যাদি ব্যবহার করবে না।
-* API, backend বা database ব্যবহার করবে না, যদি requirements-এ স্পষ্টভাবে বলা না থাকে।
+---
 
-### Design Rule
+### 🤖 AI & Automation
 
-Requirements-এ design/layout দেওয়া থাকলে সেটাই follow করবে।
+<p>
+  <img src="https://skillicons.dev/icons?i=python" />
+</p>
 
-Requirements-এ কোনো design detail না থাকলে:
+**LLMs • OpenAI API • LangChain • LangGraph • LlamaIndex • RAG • AI Agents • n8n • AI Automation**
 
-* Simple
-* Clean
-* Professional
-* Bootstrap 5 based
+---
 
-design ব্যবহার করবে।
+### 🚀 DevOps & Tools
 
-নিজের থেকে কোনো fancy animation, extra effect বা unnecessary styling যোগ করবে না।
+<p>
+  <img src="https://skillicons.dev/icons?i=git,github,docker,linux,vercel,aws,vscode" />
+</p>
 
-### Responsive Rule
+**Git • GitHub • Docker • Linux • CI/CD • Vercel • AWS • VS Code**
 
-Requirements-এ responsive website প্রয়োজন হলে Bootstrap 5-এর responsive classes ব্যবহার করবে।
+---
 
-যতটা সম্ভব custom media query এড়িয়ে চলবে।
+# 🔥 Featured Projects
 
-### Important
+### 🏦 Royal Bank
 
-Requirements-এ কোনো feature না থাকলে সেটি **বানাবে না**।
+A complete modern banking platform UI designed around real-world banking features.
 
-যেমন requirements-এ না থাকলে নিজের থেকে:
+**Features include:**
 
-* Login/Register
-* Search
-* Filter
-* Cart
-* Wishlist
-* Dashboard
-* Extra pages
-* Extra sections
-* Animation
-* API
-* Database
-* Authentication
-* Extra JavaScript
+* 👤 Customer Dashboard
+* 🛡️ Admin Dashboard
+* 💳 Accounts & Cards
+* 💸 Money Transfer
+* 📱 QR Money Transfer
+* 📊 Transactions
+* 🔐 Authentication
+* 🔔 Notifications
+* 🌙 Dark / Light Mode
+* 📈 Financial Dashboard
+* ⚙️ Admin Management
 
-কোনোটিই যোগ করবে না।
+**Tech:** React • TypeScript • Tailwind CSS • React Router • Redux
 
-### Output
+---
 
-আমি requirements দেওয়ার পর:
+### 💎 Jewellery E-commerce
 
-1. Requirements পড়ে প্রয়োজনীয় section/page identify করবে।
-2. তারপর সরাসরি প্রয়োজনীয় code তৈরি করবে।
-3. Code যতটা সম্ভব ছোট, পরিষ্কার এবং সহজ রাখবে।
-4. প্রতিটি requirement পূরণ হবে।
-5. **কোনো extra feature যোগ করবে না।**
+A premium single-vendor jewellery e-commerce experience focused on modern UI, responsive design and reusable components.
 
-### Main Rule
+**Tech:** React • TypeScript • Tailwind CSS • Redux • Swiper
 
-**শুধু Requirements পূরণ করো — এর বাইরে কিছু করো না।**
+---
 
-**Minimum Code + Minimum JavaScript + Maximum Bootstrap 5.**
+### 🛒 Marketplace
 
-এখন আমি তোমাকে শুধু website-এর requirements দেব।
+A modern marketplace application with product browsing, categories, product details, wishlist and shopping functionality.
+
+**Tech:** React • Vite • Tailwind CSS • Redux Toolkit • REST API
+
+---
+
+### 🤖 AI Automation
+
+Exploring intelligent automation systems using:
+
+* LLMs
+* AI Agents
+* RAG
+* API integrations
+* Function calling
+* Workflow automation
+* n8n
+
+---
+
+# 🧠 Currently Learning
+
+```text
+Frontend
+ ├── Advanced React
+ ├── TypeScript
+ ├── State Management
+ └── Scalable UI Architecture
+
+Backend
+ ├── Node.js
+ ├── Express
+ ├── Python
+ ├── Django / FastAPI
+ ├── REST APIs
+ └── Databases
+
+AI
+ ├── LLMs
+ ├── Prompt Engineering
+ ├── RAG
+ ├── LangChain
+ ├── LangGraph
+ ├── AI Agents
+ └── AI Automation
+
+DevOps
+ ├── Linux
+ ├── Docker
+ ├── CI/CD
+ ├── Cloud
+ ├── Deployment
+ └── Infrastructure
+```
+
+---
+
+# 📊 GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true&theme=tokyonight&hide_border=true" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=YOUR_USERNAME&theme=tokyonight&hide_border=true" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_USERNAME&layout=compact&theme=tokyonight&hide_border=true" />
+</p>
+
+---
+
+# 📈 My Development Journey
+
+```text
+Frontend
+   ↓
+React / TypeScript
+   ↓
+Backend
+   ↓
+APIs / Databases
+   ↓
+AI & LLM
+   ↓
+Automation / Agents
+   ↓
+Docker / DevOps
+   ↓
+Cloud / Production
+```
+
+---
+
+# 🎯 2026 Goals
+
+* [ ] Become a strong Full-Stack Developer
+* [ ] Build production-ready backend systems
+* [ ] Master REST APIs & databases
+* [ ] Build AI-powered applications
+* [ ] Learn advanced AI Agents
+* [ ] Build real-world n8n automations
+* [ ] Improve Docker & DevOps skills
+* [ ] Learn CI/CD pipelines
+* [ ] Deploy scalable applications
+* [ ] Contribute to Open Source
+
+---
+
+# 🤝 Let's Connect
+
+<p align="center">
+
+<a href="https://github.com/YOUR_USERNAME">
+<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
+</a>
+
+<a href="https://www.linkedin.com/">
+<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
+</a>
+
+<a href="mailto:YOUR_EMAIL">
+<img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" />
+</a>
+
+</p>
+
+---
+
+<p align="center">
+
+### 💡 Build. Automate. Deploy. Repeat.
+
+⭐ If you find my projects useful, consider giving them a star!
+
+</p>
